@@ -5,7 +5,8 @@
   "description": "Bot Discord per riprodurre musica da Spotify, YouTube, SoundCloud con DisTube",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+  "postinstall": "echo Skipping postinstall"
   },
   "dependencies": {
     "discord.js": "^14.13.0",
