@@ -1,6 +1,6 @@
 const { Client, Intents } = require('discord.js');
 const { DisTube } = require('distube');
-const { getTracks } = require('spotify-url-info')(require('axios'));
+const { getTracks } = require('spotify-url-info');
 const { token } = require('./config.json');  // Assicurati di avere un file config.json con il token del bot
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES] });
