@@ -1,15 +1,16 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
+const { clientId, guildId, token } = require('./config.json');
 
 const commands = [
     {
         name: 'play',
-        description: 'Play a song or playlist',
+        description: 'Play a song from a URL',
         options: [
             {
                 name: 'url',
-                type: 'STRING',
-                description: 'The URL of the song or playlist',
+                type: 3, // STRING
+                description: 'The URL of the song',
                 required: true,
             },
         ],
@@ -24,7 +25,7 @@ const commands = [
         options: [
             {
                 name: 'volume',
-                type: 'INTEGER',
+                type: 4, // INTEGER
                 description: 'Volume level (0-100)',
                 required: true,
             },
@@ -32,7 +33,7 @@ const commands = [
     },
     {
         name: 'join',
-        description: 'Join your voice channel',
+        description: 'Join a voice channel',
     },
     {
         name: 'disconnect',
@@ -40,17 +41,19 @@ const commands = [
     },
     {
         name: '24/7',
-        description: 'Play music 24/7',
+        description: 'Play music continuously',
     },
 ];
 
-const rest = new REST({ version: '9' }).setToken('MTIyMzMyOTE1ODczOTAwNTU4NA.Gqs4Ht.rYlfhpzc2EUhPLCKkD3Jralwrl4YXGn6XN_Euk');
+const rest = new REST({ version: '9' }).setToken(token);
 
 (async () => {
     try {
         console.log('Started refreshing application (/) commands.');
 
-        await rest.put(Routes.applicationCommands('1223329158739005584'), { body: commands });
+        await rest.put(Routes.applicationGuildCommands(clientId, guildId), {
+            body: commands,
+        });
 
         console.log('Successfully reloaded application (/) commands.');
     } catch (error) {
