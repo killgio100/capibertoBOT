@@ -40,7 +40,7 @@ const commands = [
         description: 'Disconnect from the voice channel',
     },
     {
-        name: '24/7',
+        name: '24-7',
         description: 'Play music continuously',
     },
 ];
