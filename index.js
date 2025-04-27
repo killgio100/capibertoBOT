@@ -2,7 +2,6 @@
 const { Client, GatewayIntentBits, EmbedBuilder, SlashCommandBuilder, Collection } = require('discord.js');
 const { DisTube } = require('distube');
 const { SpotifyPlugin } = require('@distube/spotify');
-const { SoundCloudPlugin } = require('@distube/soundcloud');
 const { REST, Routes } = require('discord.js');
 const client = new Client({
     intents: [
@@ -14,10 +13,12 @@ const client = new Client({
 });
 
 const distube = new DisTube(client, {
-    plugins: [new SpotifyPlugin(), new SoundCloudPlugin()],
+    youtubeDL: false,
+    plugins: [new SpotifyPlugin()],
     leaveOnEmpty: true,
     leaveOnStop: true
-});
+})
+
 
 const token = 'TOKEN_BOT';
 const clientId = 'ID_CLIENT';
