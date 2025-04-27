@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,6 +17,11 @@
     "@discordjs/voice": "^0.18.0",
     "axios": "^1.9.0",
     "discord-api-types": "^0.38.1",
-    "discord.js": "^14.19.1"
+    "discord.js": "^14.19.1",
+    "express": "^4.17.1",
+    "spotify-url-info": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
