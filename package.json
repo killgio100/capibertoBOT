@@ -1,22 +1,21 @@
 {
-    "name": "music-bot",
-    "version": "1.0.0",
-    "description": "Bot Discord per riprodurre musica da Spotify, YouTube con DisTube",
-    "main": "index.js",
-    "dependencies": {
-        "discord.js": "^14.13.0",
-    "express": "^4.17.1",
-        "distube": "^4.2.0",
-        "spotify-url-info": "^1.0.3",
-        "axios": "^0.27.2"
-    },
-  "devDependencies": {
-    "devtool": "^1.0.0"
+  "name": "capibertobot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-    "scripts": {
-        "start": "node index.js"
-    },
-    "engines": {
-        "node": ">=16.x"
-    }
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@discordjs/builders": "^1.11.1",
+    "@discordjs/opus": "^0.10.0",
+    "@discordjs/rest": "^2.5.0",
+    "@discordjs/voice": "^0.18.0",
+    "axios": "^1.9.0",
+    "discord-api-types": "^0.38.1",
+    "discord.js": "^14.19.1"
+  }
 }
