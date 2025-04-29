@@ -1,27 +1,31 @@
 {
   "name": "capibertobot",
   "version": "1.0.0",
-  "main": "bot.js",
+  "description": "Bot musicale con DisTube, Spotify e SoundCloud",
+  "main": "index.js",
   "scripts": {
-    "start": "node bot.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "discord",
+    "music",
+    "bot",
+    "distube"
+  ],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "@discordjs/builders": "^1.11.1",
     "@discordjs/opus": "^0.10.0",
-    "@discordjs/rest": "^2.5.0",
     "@discordjs/voice": "^0.18.0",
-    "axios": "^1.9.0",
-    "discord-api-types": "^0.38.1",
-    "discord.js": "^14.19.1",
-    "express": "^4.17.1",
-    "spotify-url-info": "^1.0.0"
-  },
-  "engines": {
-    "node": ">=16.0.0"
+    "@distube/soundcloud": "^2.0.4",
+    "@distube/spotify": "^2.0.2",
+    "@distube/yt-dlp": "^2.0.1",
+    "@distube/ytdl": "^2.0.6",
+    "discord.js": "^14.19.2",
+    "distube": "^5.0.7",
+    "dotenv": "^16.5.0",
+    "ffmpeg-static": "^5.2.0",
+    "spotify-web-api-node": "^5.0.2",
+    "yt-dlp-exec": "^1.0.2"
   }
 }

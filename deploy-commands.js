@@ -1,61 +1,30 @@
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
-const { clientId, guildId, token } = require('./config.json');
+require('dotenv').config();
+const { REST, Routes } = require('discord.js');
+const fs = require('node:fs');
+const path = require('node:path');
 
-const commands = [
-    {
-        name: 'play',
-        description: 'Play a song from a URL',
-        options: [
-            {
-                name: 'url',
-                type: 3, // STRING
-                description: 'The URL of the song',
-                required: true,
-            },
-        ],
-    },
-    {
-        name: 'pause',
-        description: 'Pause the current song',
-    },
-    {
-        name: 'volume',
-        description: 'Set the volume',
-        options: [
-            {
-                name: 'volume',
-                type: 4, // INTEGER
-                description: 'Volume level (0-100)',
-                required: true,
-            },
-        ],
-    },
-    {
-        name: 'join',
-        description: 'Join a voice channel',
-    },
-    {
-        name: 'disconnect',
-        description: 'Disconnect from the voice channel',
-    },
-    {
-        name: '24-7',
-        description: 'Play music continuously',
-    },
-];
+const commands = [];
+const commandsPath = path.join(__dirname, 'commands');
+const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
-const rest = new REST({ version: '9' }).setToken(token);
+for (const file of commandFiles) {
+    const filePath = path.join(commandsPath, file);
+    const command = require(filePath);
+    commands.push(command.data.toJSON());
+}
+
+const rest = new REST().setToken(process.env.TOKEN);
 
 (async () => {
     try {
-        console.log('Started refreshing application (/) commands.');
+        console.log(`Ricaricamento ${commands.length} (/) comandi...`);
 
-        await rest.put(Routes.applicationGuildCommands(clientId, guildId), {
-            body: commands,
-        });
+        await rest.put(
+            Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
+            { body: commands },
+        );
 
-        console.log('Successfully reloaded application (/) commands.');
+        console.log('Comandi ricaricati con successo!');
     } catch (error) {
         console.error(error);
     }
