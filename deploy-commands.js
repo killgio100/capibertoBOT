@@ -13,7 +13,7 @@ for (const file of commandFiles) {
     commands.push(command.data.toJSON());
 }
 
-const rest = new REST().setToken(process.env.TOKEN);
+const rest = new REST().setToken(process.env.VECCHIO_TOKEN);
 
 (async () => {
     try {
