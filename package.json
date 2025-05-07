@@ -5,7 +5,7 @@
   "main": "bot.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node index.js"
   },
   "engines": {
     "node": ">=18.17.0"
@@ -21,6 +21,7 @@
     "@distube/youtube": "^1.0.4",
     "@distube/yt-dlp": "^2.0.1",
     "@distube/ytdl-core": "^4.16.10",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "cors": "^2.8.5",
     "discord.js": "^14.19.3",
     "distube": "^5.0.7",

@@ -35,7 +35,7 @@ client.on('error', console.error);
 process.on('unhandledRejection', console.error);
 
 // Initialize DisTube with correct plugin order
-const FFMPEG_PATH = process.env.FFMPEG_PATH || 'ffmpeg';
+const FFMPEG_PATH = require('@ffmpeg-installer/ffmpeg').path;
 const distube = new DisTube(client, {
   emitNewSongOnly: true,
   ffmpeg: { path: FFMPEG_PATH },
